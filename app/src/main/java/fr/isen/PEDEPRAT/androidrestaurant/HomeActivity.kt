@@ -22,6 +22,12 @@ class HomeActivity : AppCompatActivity() {
         binding.buttonEntrees.setOnClickListener{
             Toast.makeText(self,"entree",Toast.LENGTH_SHORT).show()
         }
+        binding.button2.setOnClickListener{
+            Toast.makeText(self,"plats",Toast.LENGTH_SHORT).show()
+        }
+        binding.button3.setOnClickListener{
+            Toast.makeText(self,"desert",Toast.LENGTH_SHORT).show()
+        }
 
 
     }
