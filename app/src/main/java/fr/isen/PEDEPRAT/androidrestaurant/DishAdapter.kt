@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.PEDEPRAT.androidrestaurant.databinding.CardViewDesignBinding
 import fr.isen.PEDEPRAT.androidrestaurant.model.Dish
+import fr.isen.PEDEPRAT.androidrestaurant.model.DishModel
+import fr.isen.PEDEPRAT.androidrestaurant.model.DishResult
 
-class DishAdapter(val dishes : List<Dish>, val onDishClick:(Dish)-> Unit): RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
+class DishAdapter(val dishes : List<DishModel>, val onDishClick:(DishModel)-> Unit): RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
 
     class DishViewHolder(val binding: CardViewDesignBinding):RecyclerView.ViewHolder(binding.root){
         val itemimage = binding.itemimage
@@ -21,9 +23,12 @@ class DishAdapter(val dishes : List<Dish>, val onDishClick:(Dish)-> Unit): Recyc
     }
 
     override fun onBindViewHolder(holder: DishViewHolder, position: Int) {
-        holder.itemName.text = dishes[position].name
-        holder.itemimage.setImageResource(dishes[position].image)
-        holder.itemPrice.text = dishes[position].Price
+
+        val dish = dishes[position]
+
+        holder.itemName.text = dish.name_fr
+       // holder.itemimage.setImageResource(dishes[position].image)
+        //holder.itemPrice.text = dishes[position].Price
 
         holder.itemView.setOnClickListener{
             onDishClick(dishes[position])

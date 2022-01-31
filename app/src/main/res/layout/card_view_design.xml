@@ -26,9 +26,8 @@
 
         <TextView
             android:id="@+id/itemName"
-            android:layout_width="236dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:text="Item"
             android:textSize="20sp"
             android:textStyle="bold"
