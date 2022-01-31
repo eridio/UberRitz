@@ -1,14 +1,15 @@
 package fr.isen.PEDEPRAT.androidrestaurant
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import fr.isen.PEDEPRAT.androidrestaurant.databinding.CardViewDesignBinding
-import fr.isen.PEDEPRAT.androidrestaurant.model.Dish
 import fr.isen.PEDEPRAT.androidrestaurant.model.DishModel
-import fr.isen.PEDEPRAT.androidrestaurant.model.DishResult
 
-class DishAdapter(val dishes : List<DishModel>, val onDishClick:(DishModel)-> Unit): RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
+class DishAdapter(val dishes: List<DishModel>, private val cellClickListener: DishActivity): RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
 
     class DishViewHolder(val binding: CardViewDesignBinding):RecyclerView.ViewHolder(binding.root){
         val itemimage = binding.itemimage
@@ -22,16 +23,27 @@ class DishAdapter(val dishes : List<DishModel>, val onDishClick:(DishModel)-> Un
             return DishViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: DishViewHolder, position: Int) {
 
         val dish = dishes[position]
 
         holder.itemName.text = dish.name_fr
-       // holder.itemimage.setImageResource(dishes[position].image)
-        //holder.itemPrice.text = dishes[position].Price
+       //Log.d("", dish.images[0].toString())
+        //load images for the card_view design
+        Picasso.get().load(dishes[position].getFirstPicture())
+            .error(R.drawable.ic_launcher_background)
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(holder.itemimage)
 
+
+
+        holder.itemPrice.text = dishes[position].prices[0].price + "€"
+
+
+        val data = dishes[position]
         holder.itemView.setOnClickListener{
-            onDishClick(dishes[position])
+            cellClickListener.onCellClickListener(data)
         }
     }
 

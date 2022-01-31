@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.starters.setOnClickListener{
-            Toast.makeText(applicationContext,"entree",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"Entrées",Toast.LENGTH_SHORT).show()
             changeActivity(getString(R.string.home_starters))
         }
         binding.dish.setOnClickListener{
@@ -27,8 +27,8 @@ class HomeActivity : AppCompatActivity() {
             changeActivity(getString(R.string.home_dish))
         }
         binding.desserts.setOnClickListener{
-            Toast.makeText(applicationContext,"desert",Toast.LENGTH_SHORT).show()
-            changeActivity(getString(R.string.home_dessert))
+            Toast.makeText(applicationContext,"Desserts",Toast.LENGTH_SHORT).show()
+            changeActivity(getString(R.string.home_desserts))
         }
 
 

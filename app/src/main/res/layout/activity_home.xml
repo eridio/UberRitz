@@ -19,17 +19,6 @@
         app:srcCompat="@drawable/_0536617_ritz_mtl_33" />
 
     <TextView
-        android:id="@+id/starters"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/home_starters"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412" />
-
-    <TextView
         android:id="@+id/dish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,14 +31,27 @@
         app:layout_constraintVertical_bias="0.484" />
 
     <TextView
+        android:id="@+id/starters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_starters"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383" />
+
+    <TextView
         android:id="@+id/desserts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/home_dessert"
+        android:text="@string/home_desserts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564" />
+        app:layout_constraintVertical_bias="0.605" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
