@@ -2,16 +2,15 @@ package fr.isen.PEDEPRAT.androidrestaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.R
-import android.app.Activity
-import android.view.View
-import android.widget.Button
+import android.content.Intent
 import android.widget.Toast
 import fr.isen.PEDEPRAT.androidrestaurant.databinding.ActivityHomeBinding
+
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -19,17 +18,25 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.buttonEntrees.setOnClickListener{
-            Toast.makeText(self,"entree",Toast.LENGTH_SHORT).show()
+        binding.starters.setOnClickListener{
+            Toast.makeText(applicationContext,"entree",Toast.LENGTH_SHORT).show()
+            changeActivity(getString(R.string.home_starters))
         }
-        binding.button2.setOnClickListener{
-            Toast.makeText(self,"plats",Toast.LENGTH_SHORT).show()
+        binding.dish.setOnClickListener{
+            Toast.makeText(applicationContext,"plats",Toast.LENGTH_SHORT).show()
+            changeActivity(getString(R.string.home_dish))
         }
-        binding.button3.setOnClickListener{
-            Toast.makeText(self,"desert",Toast.LENGTH_SHORT).show()
+        binding.desserts.setOnClickListener{
+            Toast.makeText(applicationContext,"desert",Toast.LENGTH_SHORT).show()
+            changeActivity(getString(R.string.home_dessert))
         }
 
 
+    }
+    private fun changeActivity(category : String) {
+        val intent = Intent(this, DishActivity::class.java)
+        intent.putExtra("category_type",category)
+        startActivity(intent)
     }
 }
 
