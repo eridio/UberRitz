@@ -38,13 +38,12 @@
         android:id="@+id/priceDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailtitle"
-        app:layout_constraintVertical_bias="0.575"
+        app:layout_constraintVertical_bias="0.336"
         app:layout_goneMarginTop="8dp" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -81,5 +80,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailtitle"
         app:layout_constraintVertical_bias="0.15" />
+
+    <ImageView
+        android:id="@+id/plus_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/add_interface_circular_symbol_with_plus_sign"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toEndOf="@+id/detail_quantity"
+        app:layout_constraintTop_toBottomOf="@+id/detailtitle"
+        app:layout_constraintVertical_bias="0.738" />
+
+    <ImageView
+        android:id="@+id/minus_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/minus_sign_in_a_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/detail_quantity"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailtitle"
+        app:layout_constraintVertical_bias="0.738" />
+
+    <TextView
+        android:id="@+id/detail_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detail_quantity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailtitle"
+        app:layout_constraintVertical_bias="0.729" />
+
+    <Button
+        android:id="@+id/detail_total_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_quantity"
+        app:layout_constraintVertical_bias="0.833" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

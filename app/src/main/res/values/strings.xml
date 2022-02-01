@@ -6,4 +6,7 @@
     <string name="home_starters">Entrées</string>
     <string name="home_desserts">Desserts</string>
     <string name="details_ingredients" />
+    <string name="quantity" />
+    <string name="detail_quantity">1</string>
+    <string name="total" />
 </resources>
