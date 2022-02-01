@@ -26,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.detailTotalButton.text = "Total  " + dish.prices[0].price + "€"
 
-       binding.detailsIngredients.text = dish.ingredients.joinToString(", ") {it.name_fr}
+       binding.detailsIngredients.text = dish.ingredients.joinToString(", ") {it.name_fr} //convert a list to a String with a separator
 
 
         dish.get_all_pictures()?.let{
@@ -37,6 +37,7 @@ class DetailActivity : AppCompatActivity() {
             binding.imagesDetail.isVisible = false
         }
 
+        //Plus/minus/total
         var quantity = 1
         binding.detailQuantity.text = quantity.toString()
         binding.plusButton.setOnClickListener{
@@ -53,9 +54,10 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.detailTotalButton.setOnClickListener{
-            if (quantity>1) {Toast.makeText(applicationContext,"votre ${dish.name_fr} a bien été ajouté à votre panier", Toast.LENGTH_SHORT).show() }
+            if (quantity==1) {Toast.makeText(applicationContext,"votre ${dish.name_fr} a bien été ajouté à votre panier", Toast.LENGTH_SHORT).show() }
             else{Toast.makeText(applicationContext,"vos ${dish.name_fr} ont bien été ajouté à votre panier", Toast.LENGTH_SHORT).show()}
 
+            createJsonPanier(quantity,dish)
 
 
         }
@@ -63,5 +65,14 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    private fun createJsonPanier(quantity : Int, dish: DishModel){
+        val json = File(cacheDir.absolutePath + "panier.json")
+        if (json.exists()){
+            val readJson = json.readText()
+        }
+
+
+
+    }
 
 }
