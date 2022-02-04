@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
-    <Button
-        android:id="@+id/detailback"
-        android:layout_width="56dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="351dp"
-        android:backgroundTint="#EFE9E9"
-        app:icon="?attr/actionModeCloseDrawable"
-        app:iconTint="#E91E63"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
 
     <TextView
         android:id="@+id/detailtitle"
@@ -54,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailback" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageDetailsDefault"

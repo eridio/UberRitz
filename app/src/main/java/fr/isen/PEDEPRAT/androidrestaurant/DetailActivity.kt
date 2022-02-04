@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.google.gson.GsonBuilder
 import fr.isen.PEDEPRAT.androidrestaurant.databinding.ActivityDetailBinding
 import fr.isen.PEDEPRAT.androidrestaurant.model.DishModel
+import fr.isen.PEDEPRAT.androidrestaurant.model.Panier
+import fr.isen.PEDEPRAT.androidrestaurant.model.ItemPanier
 import java.io.File
 
 
 private lateinit var binding : ActivityDetailBinding
+
 
 class DetailActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -57,7 +61,8 @@ class DetailActivity : AppCompatActivity() {
             if (quantity==1) {Toast.makeText(applicationContext,"votre ${dish.name_fr} a bien été ajouté à votre panier", Toast.LENGTH_SHORT).show() }
             else{Toast.makeText(applicationContext,"vos ${dish.name_fr} ont bien été ajouté à votre panier", Toast.LENGTH_SHORT).show()}
 
-            createJsonPanier(quantity,dish)
+            JsonPanier(quantity,dish)
+            //proposer un button update ou simplement ajouter?
 
 
         }
@@ -65,14 +70,32 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    private fun createJsonPanier(quantity : Int, dish: DishModel){
+    private fun JsonPanier(quantity : Int, dish: DishModel){
         val json = File(cacheDir.absolutePath + "panier.json")
         if (json.exists()){
             val readJson = json.readText()
+            if (readJson.isNotEmpty()) {
+                val panier = GsonBuilder().create().fromJson(readJson, Panier::class.java)
+                updatePanier(panier, quantity, dish)
+            }
+            else {updatePanier(null, quantity, dish)
+            }
+        }
+        else {
+            updatePanier(null, quantity, dish)
         }
 
 
 
+    }
+
+
+    private fun updatePanier(panier: Panier?, quantity: Int,dish: DishModel){
+        val panier_create = panier?: Panier(mutableListOf())
+        panier_create.items.add(ItemPanier(quantity,dish))
+
+        File(cacheDir.absolutePath + "panier.json").writeText(GsonBuilder().create().toJson(panier_create))
+        invalidateOptionsMenu()
     }
 
 }

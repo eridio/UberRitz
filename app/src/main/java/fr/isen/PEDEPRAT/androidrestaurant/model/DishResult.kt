@@ -23,3 +23,7 @@ data class DishModel(val name_fr : String, val images : List<String>, val prices
 data class PriceModel(val price : String): Serializable
 
 data class Ingredient(val name_fr: String): Serializable
+
+data class Panier(val items : MutableList<ItemPanier>) : Serializable
+
+data class ItemPanier(val quantity : Int , val dish : DishModel) : Serializable
