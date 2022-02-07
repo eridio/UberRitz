@@ -1,9 +1,11 @@
 package fr.isen.PEDEPRAT.androidrestaurant
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.google.gson.GsonBuilder
@@ -18,11 +20,15 @@ private lateinit var binding : ActivityDetailBinding
 
 
 class DetailActivity : AppCompatActivity() {
+    lateinit var sharedPreferences : SharedPreferences
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
 
         val dish = intent.getSerializableExtra("dish") as DishModel
         binding.detailtitle.text = dish.name_fr
@@ -62,6 +68,10 @@ class DetailActivity : AppCompatActivity() {
             else{Toast.makeText(applicationContext,"vos ${dish.name_fr} ont bien été ajouté à votre panier", Toast.LENGTH_SHORT).show()}
 
             JsonPanier(quantity,dish)
+
+
+
+
             //proposer un button update ou simplement ajouter?
 
 
@@ -84,18 +94,21 @@ class DetailActivity : AppCompatActivity() {
         else {
             updatePanier(null, quantity, dish)
         }
-
-
-
     }
-
 
     private fun updatePanier(panier: Panier?, quantity: Int,dish: DishModel){
         val panier_create = panier?: Panier(mutableListOf())
         panier_create.items.add(ItemPanier(quantity,dish))
-
+        updateUserPreferences(panier_create)
+        //lire le json
+        //deserializer la list
+        //reserializer
         File(cacheDir.absolutePath + "panier.json").writeText(GsonBuilder().create().toJson(panier_create))
         invalidateOptionsMenu()
     }
-
+    private fun updateUserPreferences(panier : Panier) {
+        val edit=sharedPreferences.edit()
+        edit.putInt("panier_count", panier.items.sumOf { it.quantity })
+        edit.apply()
+    }
 }

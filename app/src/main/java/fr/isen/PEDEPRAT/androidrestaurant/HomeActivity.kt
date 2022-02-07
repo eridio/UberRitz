@@ -8,6 +8,7 @@ import fr.isen.PEDEPRAT.androidrestaurant.databinding.ActivityHomeBinding
 
 
 class HomeActivity : AppCompatActivity() {
+    //renomer le projet en uberritz a la place de android restaurant
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -29,6 +30,12 @@ class HomeActivity : AppCompatActivity() {
         binding.desserts.setOnClickListener{
             Toast.makeText(applicationContext,"Desserts",Toast.LENGTH_SHORT).show()
             changeActivity(getString(R.string.home_desserts))
+        }
+
+        binding.panierHome.setOnClickListener{
+
+            startActivity(Intent(this, PanierActivity::class.java))
+            finish()
         }
 
 

@@ -9,4 +9,16 @@
     <string name="quantity" />
     <string name="detail_quantity">1</string>
     <string name="total" />
+    <string name="RegiterButton">Register ?</string>
+    <string name="chooseToLoginButton">J\'ai déjà un compte</string>
+    <string name="register_first_name">first_name</string>
+    <string name="register_last_name">Last name</string>
+    <string name="lastName">last name</string>
+    <string name="register_adress">adresse</string>
+    <string name="register_email">email</string>
+    <string name="loginButton">connexion</string>
+    <string name="chooseRegisterButton">pas de compte ? créer en un.</string>
+    <string name="PassCommand">Commander</string>
+    <string name="Panier">Panier</string>
+    <string name="ordertitle" />
 </resources>
