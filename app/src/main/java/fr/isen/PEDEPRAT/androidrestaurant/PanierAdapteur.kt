@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 import fr.isen.PEDEPRAT.androidrestaurant.databinding.ActivityPanierAdapteurBinding
 import fr.isen.PEDEPRAT.androidrestaurant.model.ItemPanier
 
-class PanierAdapteur(private val list : MutableList<ItemPanier>, private val delete : (ItemPanier) -> Unit):
+public class PanierAdapteur(private val list : MutableList<ItemPanier>, private val delete : (ItemPanier) -> Unit):
     RecyclerView.Adapter<PanierAdapteur.PanierViewHolder>() {
 
     private lateinit var context: Context
