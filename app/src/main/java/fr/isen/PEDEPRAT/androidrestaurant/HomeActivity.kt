@@ -23,6 +23,11 @@ class HomeActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,"Entrées",Toast.LENGTH_SHORT).show()
             changeActivity(getString(R.string.home_starters))
         }
+        binding.maps.setOnClickListener{
+            //startActivity(Intent(this, MapsActivity::class.java))
+            //finish()
+
+        }
         binding.dish.setOnClickListener{
             Toast.makeText(applicationContext,"plats",Toast.LENGTH_SHORT).show()
             changeActivity(getString(R.string.home_dish))
@@ -38,6 +43,12 @@ class HomeActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.commandes.setOnClickListener{
+            startActivity(Intent(this, OderPassedActivity::class.java))
+            finish()
+        }
+
+
 
     }
     private fun changeActivity(category : String) {
@@ -47,3 +58,4 @@ class HomeActivity : AppCompatActivity() {
     }
 }
 
+//token : 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

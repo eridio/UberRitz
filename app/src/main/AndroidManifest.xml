@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UberRitz">
         <activity
+            android:name=".MapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OderPassedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmptyPanierActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PanierAdapteur"
+            android:exported="false" />
+        <activity
             android:name=".OrderActivity"
             android:exported="false" />
         <activity

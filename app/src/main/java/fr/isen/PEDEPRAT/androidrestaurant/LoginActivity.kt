@@ -51,21 +51,26 @@ class LoginActivity : AppCompatActivity() {
             Request.Method.POST, url, jsonObject, { response ->
                 //dans ce block la on est synchro avec le web service
 
+
                 val gson = Gson()
-                val register_result =
-                    gson.fromJson(response.toString(), RegisterResult::class.java)
+                val register_result = gson.fromJson(response.toString(), RegisterResult::class.java)
+
 
                 //preferences
                 val edit=getSharedPreferences("app_preferences",Context.MODE_PRIVATE).edit()
                 edit.putString("email", binding.emailLogin.text.toString())
+                edit.putString("user_id", register_result.data.id)
                 edit.putString("password", binding.passwordLogin.text.toString())
                 edit.apply()
 
 
                 //binding.title2.text = register_result.toString()
                 startActivity(Intent(this, OrderActivity::class.java))
+                finish()
             }, {
-                Toast.makeText(applicationContext, "Erreur lors du login $it", LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Erreur lors du login", LENGTH_SHORT).show()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
             }
         )
 
@@ -79,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
             getSharedPreferences("app_preferences", Context.MODE_PRIVATE).getString("email", "")
         val password_returned =
             getSharedPreferences("app_preferences", Context.MODE_PRIVATE).getString("password", "")
+
 
         val queue = Volley.newRequestQueue(this)
         val url = "http://test.api.catering.bluecodegames.com/user/login"

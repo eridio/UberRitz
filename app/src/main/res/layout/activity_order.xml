@@ -6,11 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
 
+
     <TextView
         android:id="@+id/ordertitle"
+        android:layout_width="15dp"
+        android:layout_height="38dp"
+        android:text="@string/ordertitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
+
+
+    <ProgressBar
+        android:id="@+id/orderLoading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="79dp"
+        android:layout_height="86dp"
+        android:indeterminate="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordertitle"
+        app:layout_constraintVertical_bias="0.417" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/deliveryMan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ordertitle"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="52dp" />
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/delivery_animation" />
+
+    <TextView
+        android:id="@+id/erreur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="error lors de la commande"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/commandOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="votre commande est en chemin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.865" />
+
+    <Button
+        android:id="@+id/buttonRetour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commandOk" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

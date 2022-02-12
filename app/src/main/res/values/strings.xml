@@ -21,4 +21,7 @@
     <string name="PassCommand">Commander</string>
     <string name="Panier">Panier</string>
     <string name="ordertitle" />
+    <string name="panierTitle">Panier</string>
+    <string name="errorMessage">Ajoutez des articles pour commencer un panier</string>
+    <string name="errorMessage2">Une fois que vous avez ajouté des plats du restaurant votre panier s\'affichera ici</string>
 </resources>
